@@ -5,9 +5,9 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "xuxiaoping2016-patch-1" ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "xuxiaoping2016-patch-1" ]
 
 jobs:
   build:
