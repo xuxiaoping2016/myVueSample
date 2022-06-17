@@ -2,7 +2,7 @@
  * @Author: xiaoping.xu
  * @Date: 2022-06-18 00:35:39
  * @LastEditors: xiaoping.xu
- * @LastEditTime: 2022-06-18 00:50:36
+ * @LastEditTime: 2022-06-18 01:04:19
  * @Desc: 
  */
 import logo from './logo.svg';
@@ -14,7 +14,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload!!!!!!1
+          Edit <code>src/App.js</code> and save to reload!!!!!! 发送邮箱
         </p>
         <a
           className="App-link"
