@@ -16,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: 14.x
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -30,14 +30,14 @@ jobs:
     - run: npm run build --if-present
     - run: npm test
     # 发送邮件    
-    - name: Send email
-      uses: dawidd6/action-send-mail@v3
-      with:
-        server_address: smtp.qq.com
-        server_port: 465
-        username: ${{secrets.MAIL_USERNAME}}
-        password: ${{secrets.MAIL_PASSWORD}}
-        subject: Github Actions job result
-        to: ${{secrets.MAIL_TOUSERNAME}}
-        from: ${{secrets.MAIL_USERNAME}}
-        body: ${{github.repository}} push log : ${{steps.git_log.outputs.log}}
+#     - name: Send email
+#       uses: dawidd6/action-send-mail@v3
+#       with:
+#         server_address: smtp.qq.com
+#         server_port: 465
+#         username: ${{secrets.MAIL_USERNAME}}
+#         password: ${{secrets.MAIL_PASSWORD}}
+#         subject: Github Actions job result
+#         to: ${{secrets.MAIL_TOUSERNAME}}
+#         from: ${{secrets.MAIL_USERNAME}}
+#         body: ${{github.repository}} push log : ${{steps.git_log.outputs.log}}
