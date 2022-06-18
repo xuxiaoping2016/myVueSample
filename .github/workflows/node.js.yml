@@ -41,3 +41,4 @@ jobs:
         to: ${{secrets.MAIL_TOUSERNAME}}
         from: ${{secrets.MAIL_USERNAME}}
         body: ${{github.repository}} push log ${{steps.git_log.outputs.log}}
+    - run: console.log(${{steps}})
