@@ -10,26 +10,26 @@ on:
     branches: [ "xuxiaoping2016-patch-1" ]
 
 jobs:
-#   build:
+  build:
 
-#     runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
 
-#     strategy:
-#       matrix:
-#         node-version: ["14"]
-#         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+    strategy:
+      matrix:
+        node-version: ["14"]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
-#     steps:
-#     - uses: actions/checkout@v3
-#     - name: Use Node.js ${{ matrix.node-version }}
-#       uses: actions/setup-node@v3
-#       with:
-#         node-version: ${{ matrix.node-version }}
-#         cache: 'npm'
-#     - run: npm ci
-#     - run: npm run build --if-present
-#     - run: npm test
-#     # 发送邮件    
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - run: npm ci
+    - run: npm run build --if-present
+    - run: npm test
+    # 发送邮件    
 #     - name: Send email
 #       uses: dawidd6/action-send-mail@v3
 #       with:
@@ -41,12 +41,10 @@ jobs:
 #         to: ${{secrets.MAIL_TOUSERNAME}}
 #         from: ${{secrets.MAIL_USERNAME}}
 #         body: ${{github.repository}} push log ${{steps.git_log.outputs.log}}
-        
-  print_context:
-  
-    runs-on: ubuntu-latest
-    steps:
-      - env:
+    # 打印
+    - name: print_context
+    - env:
           EVENT_CONTEXT: ${{ toJSON(steps) }}
-        run: |
+      run: |
           echo $EVENT_CONTEXT
+     
