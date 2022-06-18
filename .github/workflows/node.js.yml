@@ -41,4 +41,12 @@ jobs:
         to: ${{secrets.MAIL_TOUSERNAME}}
         from: ${{secrets.MAIL_USERNAME}}
         body: ${{github.repository}} push log ${{steps.git_log.outputs.log}}
-    - run: console.log(JSON.stringify(${{steps}}))
+        
+  print_context:
+  
+    runs-on: ubuntu-latest
+    steps:
+      - env:
+          EVENT_CONTEXT: ${{ toJSON(github.event) }}
+        run: |
+          echo $EVENT_CONTEXT
